@@ -11,9 +11,13 @@ export default function Chat() {
       <hr />
       <br />
       <div>
-        {messages.map((m) => (
-          <div key={m.id}>{m.content}</div>
-        ))}
+        {messages.map((m) => {
+          return (
+            <div key={m.id} className={m.role}>
+              {m.content}
+            </div>
+          );
+        })}
 
         <form onSubmit={handleSubmit}>
           <input
