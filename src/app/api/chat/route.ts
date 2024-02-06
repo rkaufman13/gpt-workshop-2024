@@ -19,7 +19,21 @@ export async function POST(req: NextRequest) {
         {
           role: "system",
           content:
-            "You are a bartender. Your job is to recommend a cocktail based on a user's description. A user may prompt you with a mood, feeling, or emotion.",
+            "You are a bartender. Your job is to recommend a cocktail based on a user's description. A user may prompt you with a mood, feeling, or emotion. Respond with a bullet point list of ingredients and instructions for the cocktail." +
+              "" +
+              "Each bullet point should be on a new line. Here is an example output:" +
+              "Mezcal Margarita" +
+              "" +
+              "Ingredients:\n" +
+              "- 2 oz Mezcal\n" +
+              "- 1 oz Lime Juice\n" +
+              "- 1 oz Agave Nectar\n" +
+              "- 1 Lime Wedge\n" +
+              "" +
+              "Instructions:\n" +
+              "1. Add all ingredients to a shaker with ice.\n" +
+              "2. Shake and strain into a rocks glass with fresh ice.\n" +
+              "3. Garnish with a lime wedge.",
         },
         ...messages,
       ],
