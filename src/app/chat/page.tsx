@@ -3,7 +3,9 @@
 import { useChat } from "ai/react";
 
 export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  const { messages, input, handleInputChange, handleSubmit, isLoading } =
+    useChat();
+  const regex = "{\\n?[Ww]+]\\n?}";
 
   return (
     <div className="page-container">
@@ -11,9 +13,13 @@ export default function Chat() {
       <hr />
       <br />
       <div>
-        {messages.map((m) => (
-          <div key={m.id}>{m.content}</div>
-        ))}
+        {isLoading
+          ? "Please wait...."
+          : messages.map((m) => {
+              if (m.role !== "user") {
+                return <div key={m.id}>{m.content}</div>;
+              }
+            })}
 
         <form onSubmit={handleSubmit}>
           <input
