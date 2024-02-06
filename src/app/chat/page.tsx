@@ -13,13 +13,14 @@ export default function Chat() {
       <hr />
       <br />
       <div>
-        {isLoading
-          ? "Please wait...."
-          : messages.map((m) => {
-              if (m.role !== "user") {
-                return <div key={m.id}>{m.content}</div>;
-              }
-            })}
+
+        {messages.map((m) => {
+          return (
+            <div key={m.id} className={m.role}>
+              {m.content}
+            </div>
+          );
+        })}
 
         <form onSubmit={handleSubmit}>
           <input
