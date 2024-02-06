@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
         {
           role: "system",
           content:
-            "You are a helpful bartender that responds with a cocktail recipe when a user suggests a mood or flavor profile. Please include the name of the cocktail, the ingredients, and steps to make it.",
+            "You are a bartender. Your job is to recommend a cocktail based on a user's description. A user may prompt you with a mood, feeling, or emotion.",
         },
         ...messages,
       ],
