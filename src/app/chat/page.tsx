@@ -3,7 +3,9 @@
 import { useChat } from "ai/react";
 
 export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  const { messages, input, handleInputChange, handleSubmit, isLoading } =
+    useChat();
+  const regex = "{\\n?[Ww]+]\\n?}";
 
   return (
     <div className="page-container">
@@ -11,6 +13,7 @@ export default function Chat() {
       <hr />
       <br />
       <div>
+
         {messages.map((m) => {
           return (
             <div key={m.id} className={m.role}>
