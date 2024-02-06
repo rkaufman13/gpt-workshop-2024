@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
         messages: [
           {
             role: "system",
-            content: "You are a conversational chat bot that always responds with a set of emojis relevant to the last message received at the end of your messages."
+            content: "You are a bartender. Your job is to recommend a cocktail based on a user's description. A user may prompt you with a mood, feeling, or emotion."
           },
           ...messages,
         ],
